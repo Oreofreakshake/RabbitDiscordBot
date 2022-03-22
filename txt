@@ -1,0 +1,6 @@
+// This is the needed event to use the welcome!
+bot.on('guildMemberAdd', async newMember => {
+
+    const welcomeChannel = newMember.guild.channels.cache.find(channel => channel.name === 'the channel name here, make sure the ')
+    welcomeChannel.send('Input your message here, if you want an embed then do a "let msgEmbed = new Discord.messageEmbed  /  and input the title and all the embed stuff, customize the message as much as you want!"')
+})
