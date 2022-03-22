@@ -10,7 +10,7 @@ const client = new Discord.Client({
 client.commands = new Discord.Collection(); //mapping the commands setup
 
 //--------------------------------------------
-
+//for commands
 const commandFiles = fs
     .readdirSync("./commands")
     .filter((file) => file.endsWith(".js")); //getting the array of the files in commmands dir
@@ -22,13 +22,22 @@ for (const file of commandFiles) {
 }
 
 //--------------------------------------------
+//for events
+const eventFiles = fs
+    .readdirSync("./events")
+    .filter((file) => file.endsWith(".js"));
 
-client.on("ready", () => {
-    const channel = client.channels.cache.get("926987961868890162");
-    const text = `${process.env.OWNER} bought me back online!`;
-    console.log("ready");
-    channel.send(text);
-});
+for (const file of eventFiles) {
+    const event = require(`./events/${file}`);
+
+    if (event.once) {
+        client.once(event.name, (...args) => event.execute(...args));
+    } else {
+        client.on(event.name, (...args) => event.execute(...args));
+    }
+}
+
+//--------------------------------------------
 
 client.on("messageCreate", (message) => {
     //this function will run on message commands dynamically from the command dir
