@@ -7,7 +7,7 @@ module.exports = {
         const channel = member.guild.channels.cache.find(
             (c) => c.name === "door"
         );
-        
+
         const memberusername = member.user.username;
 
         const welcomeResponses = [
@@ -17,7 +17,7 @@ module.exports = {
             "Nice to see you come out of your basement for once",
             "Hope you brought your sister",
             "You can hide from your responsibilities here",
-        ]; 
+        ];
 
         const randomResponse = Math.floor(
             Math.random() * welcomeResponses.length
