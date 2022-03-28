@@ -1,0 +1,34 @@
+
+
+//-----------------------------embed-----------------------------------------------
+const exampleEmbed = new MessageEmbed()
+    .setColor("#0099ff")
+    .setTitle("author.name")
+    .setAuthor({
+        name: "WELCOME",
+    })
+    .setDescription("something about author")
+    .setThumbnail(
+        "https://www.nj.com/resizer/mg42jsVYwvbHKUUFQzpw6gyKmBg=/1280x0/smart/advancelocal-adapter-image-uploads.s3.amazonaws.com/image.nj.com/home/njo-media/width2048/img/somerset_impact/photo/sm0212petjpg-7a377c1c93f64d37.jpg"
+    )
+    .addFields(
+        { name: "Regular field title1", value: "Some value here" },
+        { name: "\u200B", value: "\u200B" }, //blank line, 2 lines
+        {
+            name: "Inline field title2",
+            value: "Some value here",
+            inline: true,
+        },
+        {
+            name: "Inline field title3",
+            value: "Some value here",
+            inline: true,
+        }
+    )
+    .setTimestamp()
+    .setFooter({
+        text: "have some fun!",
+        iconURL: "https://i.imgur.com/AfFp7pu.png",
+    });
+
+message.channel.send({ embeds: [exampleEmbed] });

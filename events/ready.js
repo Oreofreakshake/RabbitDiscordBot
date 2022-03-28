@@ -4,7 +4,7 @@ module.exports = {
     execute(client) {
         const channel = client.channels.cache.get("926987961868890162");
         const text = `${process.env.OWNER} bought me back online!`;
-        console.log("ready");
+        console.log("client logged in");
         channel.send(text);
     },
 };
