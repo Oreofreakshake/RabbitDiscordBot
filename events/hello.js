@@ -5,11 +5,19 @@ module.exports = {
     once: false,
     execute(member) {
         const channel = member.guild.channels.cache.find(
-            (c) => c.name === "welcome"
+            (c) => c.name === "door"
         );
+        
         const memberusername = member.user.username;
 
-        const welcomeResponses = ["hope you brought some pizza"]; //needs to add more responses
+        const welcomeResponses = [
+            "Hope you brought some pizza, and it better not have pineapples on that shit",
+            "They're here to chew ass and kick gum, and they're all out of gum",
+            "Oh it's just you",
+            "Nice to see you come out of your basement for once",
+            "Hope you brought your sister",
+            "You can hide from your responsibilities here",
+        ]; 
 
         const randomResponse = Math.floor(
             Math.random() * welcomeResponses.length
